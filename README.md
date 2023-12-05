@@ -33,7 +33,6 @@
 			<li>Implementing the exit built-in, that exits the shell</li>
 			<li>Implementing the env built-in, that prints the current environment</li>
 		</ul>
-		</br>
 		<h4>Authers</h4>
 		<ol>
 		<h4>Lubaba Salah</h4>
