@@ -21,7 +21,7 @@ void execute_prompt(const char *command, char *const arguments[])
 		wait(NULL);
 	}
 }
-int main()
+int main();
 {
     const char *command = "executable path";
     
