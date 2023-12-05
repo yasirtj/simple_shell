@@ -33,9 +33,10 @@
 			<li>Implementing the exit built-in, that exits the shell</li>
 			<li>Implementing the env built-in, that prints the current environment</li>
 		</ul>
-		### Authors
-
-		* [Lubaba Salah](https://github.com/lubaba3)
-		* [Yasir Mohammednour](https://github.com/yasirtj)
+		<h4>Authers</h4>
+		<ol>
+    <li><a href="https://github.com/Lubaba3">Lubaba Salah</a></li>
+    <li><a href="https://github.com/yasirtj">Yasir Mohammednour</a></li>
+</ol>
 	</body>
 </html>    
