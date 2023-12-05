@@ -1,5 +1,13 @@
 #include "shell.h"
+
+/**
+ * display_prompt - displays prompt to the user
+ * Return: Success
+*/
 void display_prompt(void)
 {
-	our_print("simp_shell$");
+	for (;;)
+	{
+		our_print("simp_shell$");
+	}
 }
