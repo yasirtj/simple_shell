@@ -35,8 +35,8 @@
 		</ul>
 		<h4>Authers</h4>
 		<ol>
-    <li><a href="https://github.com/Lubaba3" text-decoration: none;color: #007bff;hover:underline>Lubaba Salah</a></li>
-    <li><a href="https://github.com/yasirtj" text-decoration: none;color: #007bff;hover:underline>Yasir Mohammednour</a></li>
+    <li><a href="https://github.com/Lubaba3" style = "text-decoration: none;color: #007bff;hover:underline">Lubaba Salah</a></li>
+    <li><a href="https://github.com/yasirtj" style = "text-decoration: none;color: #007bff;hover:underline">Yasir Mohammednour</a></li>
 </ol>
 	</body>
 </html>    
