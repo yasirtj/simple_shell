@@ -9,6 +9,11 @@ void exit(void)
 	const char *message = "Exiting the loop with custom exit...\n";
     write(STDOUT_FILENO, message, strlen(message));
 }
+
+/**
+ * display_prompt - displays prompt to the user
+ * Return: Success
+ */
 void display_prompt(void)
 {
     char *line = NULL;
