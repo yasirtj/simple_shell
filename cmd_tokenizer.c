@@ -1,4 +1,4 @@
-#include "shell.h"
+#include "header_shell.h"
 /**
  * cmd_tokenizer - parses and tokenizes command into tokens
  * @string: command
@@ -14,8 +14,7 @@ char **cmd_tokenizer(char *string, char *delimeter)
 	copy_of_string = strdup(string);
 	if (copy_of_string == NULL)
 	{
-		perror("couldn't duplicate string");
-		exit(1);
+		exit(1, "failed to duplicate string");
 	}
 	cmd_token = strtok(copy_of_string, delimeter);
 	while (cmd_token != NULL)
@@ -27,8 +26,7 @@ char **cmd_tokenizer(char *string, char *delimeter)
 	array_of_tokens = malloc((number_of_tokens + 1) * sizeof(char *));
 	if (array_of_tokens == NULL)
 	{
-		perror("failed to allocate memory for your command!");
-		exit(1);
+		exit(1, "failed to allocate memory");
 	}
 	cmd_token = strtok(string, delimeter);
 	for (i = 0; i < number_of_tokens; i++)
@@ -36,8 +34,7 @@ char **cmd_tokenizer(char *string, char *delimeter)
 		array_of_tokens[i] = strdup(cmd_token);
 		if (array_of_tokens[i] == NULL)
 		{
-			perror("failed to duplicate string");
-			exit(1);
+			exit(1, "failed to duplicate string!");
 		}
 		cmd_token = strtok(NULL, delimeter);
 	}
