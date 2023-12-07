@@ -1,5 +1,6 @@
 #include "header_shell.h"
 
+
 /**
  * execute_prompt - executes command entered by user
  * @command: command entered by user
@@ -7,20 +8,20 @@
  * Return: Success
 */
 
-void execute_prompt(const char *command, const char *const arguments[])
+void execute_prompt(const char *command, char *const arguments[])
 {
 	pid_t child_pid;
 
 	child_pid = fork();
 	if (child_pid == -1)
 	{
-		exit(1, "process creation failed!");
+		our_exit(1, "process creation failed!");
 	}
 	else if (child_pid == 0)
 	{
-		if (execve(command, arguments, NULL) == -1)
+		if (execve(command, (const char *const *)arguments, NULL) == -1)
 		{
-			exit(127, "command not found");
+			our_exit(127, "command not found");
 	}
 	else
 	{

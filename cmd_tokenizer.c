@@ -14,7 +14,7 @@ char **cmd_tokenizer(char *string, char *delimeter)
 	copy_of_string = strdup(string);
 	if (copy_of_string == NULL)
 	{
-		exit(1, "failed to duplicate string");
+		our_exit(1, "failed to duplicate string");
 	}
 	cmd_token = strtok(copy_of_string, delimeter);
 	while (cmd_token != NULL)
@@ -26,7 +26,7 @@ char **cmd_tokenizer(char *string, char *delimeter)
 	array_of_tokens = malloc((number_of_tokens + 1) * sizeof(char *));
 	if (array_of_tokens == NULL)
 	{
-		exit(1, "failed to allocate memory");
+		our_exit(1, "failed to allocate memory");
 	}
 	cmd_token = strtok(string, delimeter);
 	for (i = 0; i < number_of_tokens; i++)
@@ -34,7 +34,7 @@ char **cmd_tokenizer(char *string, char *delimeter)
 		array_of_tokens[i] = strdup(cmd_token);
 		if (array_of_tokens[i] == NULL)
 		{
-			exit(1, "failed to duplicate string!");
+			our_exit(1, "failed to duplicate string!");
 		}
 		cmd_token = strtok(NULL, delimeter);
 	}
