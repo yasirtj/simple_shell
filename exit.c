@@ -1,13 +1,13 @@
 #include "header_shell.h"
 
 /**
- * exit_execution - exits current execution
+ * our_exit - exits current execution
  * @status_code: status code
  * @error_msg :error message
  * Return: Success
 */
 
-void exit_execution(int status_code, const char *error_msg)
+void our_exit(int status_code, const char *error_msg)
 {
 	if (error_msg != NULL)
 	{

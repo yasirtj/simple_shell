@@ -8,8 +8,7 @@
  * Return: Success
 */
 
-void execute_prompt(const char *command, char *const arguments[])
-void execute_prompt(const char *command, const char *arguments[])
+/* void execute_prompt(const char *command, char **arguments[])
 {
 	pid_t child_pid;
 
@@ -20,14 +19,34 @@ void execute_prompt(const char *command, const char *arguments[])
 	}
 	else if (child_pid == 0)
 	{
-		if (execve(command, arguments, NULL) == -1)
+		if (execve(command, *arguments, NULL) == -1)
 		{
-			our_exit_execution(127, "command not found");
+			our_exit(127, "command not found");
 		}
 		else
 		{
 			wait(NULL);
 		}
+	}
+} */
+
+/**
+ * execute_cmd - Executes the command
+ * @arg_vector: null terminated array of string that holds the command
+ * Return: nothing
+**/
+
+void execute_cmd(char **arg_vector)
+{
+	char *cmd = NULL;
+
+	if (arg_vector != NULL)
+	{
+		cmd = arg_vector[0];
+	if (execve(cmd, arg_vector, NULL) == -1)
+	{
+		our_exit(127, "command not found!");
+		};
 	}
 }
 
@@ -35,12 +54,13 @@ void execute_prompt(const char *command, const char *arguments[])
  * main - main function
  * Return: Success
 */
-/* /**
-int main(void);
-{
-	const char *command = "executable path";
-	char *const arguments[] = {"executable path", "arg1", "arg2", NULL};
 
-	execute_prompt(command, arguments);
+/* int main(void)
+{
+	char *command = NULL;
+	const char *command = "executable path";
+	const char **arguments[] = {"executable path", "arg1", "arg2", NULL};
+
+	execute_cmd(arguments);
 	return (0);
-} */ */
+} */

@@ -11,7 +11,7 @@
 }  */
 
 /**
- * display_prompt - displays prompt to the user
+ * display - displays prompt to the user
  * Return: Success
  */
 void display(void)
@@ -27,14 +27,14 @@ void display(void)
 			if (read_bytes == -1)
 			{
 					our_print("\n");
-					exit_execution(1, "An error occured!");
+					our_exit(1, "An error occured!\n");
 					free(line);
 			}
 		}
 }
 
 /**
- * main - main functio
+ * main - main function
  * Return: void
 **/
 

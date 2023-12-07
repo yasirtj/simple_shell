@@ -7,11 +7,15 @@
 
 int main(void)
 {
-	char *command = NULL;
+	char *command = NULL, *delimeter = " ";
 	size_t size = 0;
+	char **tokens;
+	(void)tokens;
 
 	display();
 	our_read(command, size);
-	free(command);
+	tokens = cmd_tokenizer(command, delimeter);
+	/* execute_cmd(tokens); */
+/* 	free(command); */
 	return (0);
 }

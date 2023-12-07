@@ -11,9 +11,14 @@ char **cmd_tokenizer(char *string, char *delimeter)
 	char **array_of_tokens;
 	int i, number_of_tokens = 0;
 
+	if (string == NULL || delimeter == NULL)
+	{
+		our_exit(1, "An error occured!\n");
+	}
 	copy_of_string = strdup(string);
 	if (copy_of_string == NULL)
 	{
+		free(copy_of_string);
 		our_exit(1, "failed to duplicate string");
 	}
 	cmd_token = strtok(copy_of_string, delimeter);
@@ -34,11 +39,13 @@ char **cmd_tokenizer(char *string, char *delimeter)
 		array_of_tokens[i] = strdup(cmd_token);
 		if (array_of_tokens[i] == NULL)
 		{
-			our_exit(1, "failed to duplicate string!");
+			free(array_of_tokens);
+			our_exit(1, "No command found\n!");
 		}
 		cmd_token = strtok(NULL, delimeter);
 	}
 	array_of_tokens[number_of_tokens] = NULL;
+	execute_cmd(array_of_tokens);
 	return (array_of_tokens);
 }
 
