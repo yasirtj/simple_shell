@@ -31,8 +31,9 @@ void execute_prompt(const char *command, char *const arguments[])
 
 /**
  * main - main function
- * Return: nothing
+ * Return: Success
 */
+/**
 int main(void);
 {
 	const char *command = "executable path";
@@ -40,4 +41,4 @@ int main(void);
 
 	execute_prompt(command, arguments);
 	return (0);
-}
+} */
