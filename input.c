@@ -7,7 +7,7 @@
  * Return: Success
 */
 
-void read(char *command, size_t cmd_string_size)
+void our_read(char *command, size_t cmd_string_size)
 {
 	size_t i;
 	int newline_found = 0;
@@ -16,7 +16,7 @@ void read(char *command, size_t cmd_string_size)
 	if (getline(&command, &cmd_string_size, stdin) == -1)
 	{
 		our_print(error_msg);
-		exit(1, error_msg);
+		our_exit(1, error_msg);
 	}
 
 	for (i = 0; i < cmd_string_size && !newline_found; i++)
