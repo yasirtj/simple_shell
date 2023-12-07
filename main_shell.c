@@ -11,7 +11,7 @@ int main(void)
 	size_t size = 0;
 
 	display();
-	read_input(command, size);
+	our_read(command, size);
 	free(command);
 	return (0);
 }

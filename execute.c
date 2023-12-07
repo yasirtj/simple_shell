@@ -1,5 +1,6 @@
 #include "header_shell.h"
 
+
 /**
  * execute_prompt - executes command entered by user
  * @command: command entered by user
@@ -7,6 +8,7 @@
  * Return: Success
 */
 
+void execute_prompt(const char *command, char *const arguments[])
 void execute_prompt(const char *command, const char *arguments[])
 {
 	pid_t child_pid;
@@ -14,13 +16,13 @@ void execute_prompt(const char *command, const char *arguments[])
 	child_pid = fork();
 	if (child_pid == -1)
 	{
-		exit_execution(1, "process creation failed!");
+		our_exit(1, "process creation failed!");
 	}
 	else if (child_pid == 0)
 	{
 		if (execve(command, arguments, NULL) == -1)
 		{
-			exit_execution(127, "command not found");
+			our_exit_execution(127, "command not found");
 		}
 		else
 		{
@@ -31,13 +33,14 @@ void execute_prompt(const char *command, const char *arguments[])
 
 /**
  * main - main function
- * Return: nothing
+ * Return: Success
 */
-/* int main(void);
+/* /**
+int main(void);
 {
 	const char *command = "executable path";
 	char *const arguments[] = {"executable path", "arg1", "arg2", NULL};
 
 	execute_prompt(command, arguments);
 	return (0);
-} */
+} */ */
