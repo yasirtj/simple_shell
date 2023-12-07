@@ -7,11 +7,11 @@
 
 int main(void)
 {
+	char *line = NULL;
 	char *command = NULL, *delimeter = " ";
 	size_t size = 0;
 	char **tokens;
 	(void)tokens;
-	 char *line = NULL;
     size_t len = 0;
     int read_bytes;
 
