@@ -15,7 +15,7 @@ void our_read(char *command, size_t cmd_string_size)
 
 	if (getline(&command, &cmd_string_size, stdin) == -1)
 	{
-		our_exit(1, "An error occured!\n");
+		our_exit(1, "exiting...\n");
 	}
 	for (i = 0; i < cmd_string_size && !newline_found; i++)
 	{
