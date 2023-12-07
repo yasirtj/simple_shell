@@ -7,24 +7,25 @@
  * Return: Success
 */
 
-void execute_prompt(const char *command, const char *const arguments[])
+void execute_prompt(const char *command, const char *arguments[])
 {
 	pid_t child_pid;
 
 	child_pid = fork();
 	if (child_pid == -1)
 	{
-		exit(1, "process creation failed!");
+		exit_execution(1, "process creation failed!");
 	}
 	else if (child_pid == 0)
 	{
 		if (execve(command, arguments, NULL) == -1)
 		{
-			exit(127, "command not found");
-	}
-	else
-	{
-		wait(NULL);
+			exit_execution(127, "command not found");
+		}
+		else
+		{
+			wait(NULL);
+		}
 	}
 }
 
@@ -32,11 +33,11 @@ void execute_prompt(const char *command, const char *const arguments[])
  * main - main function
  * Return: nothing
 */
-int main(void);
+/* int main(void);
 {
 	const char *command = "executable path";
 	char *const arguments[] = {"executable path", "arg1", "arg2", NULL};
 
 	execute_prompt(command, arguments);
 	return (0);
-}
+} */

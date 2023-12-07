@@ -1,7 +1,7 @@
 #include "header_shell.h"
 
 /**
- * main - shell starting point 
+ * main - shell starting point
  * Return: Success
 */
 
@@ -11,7 +11,7 @@ int main(void)
 	size_t size = 0;
 
 	display();
-	read(command, size);
+	read_input(command, size);
 	free(command);
 	return (0);
 }

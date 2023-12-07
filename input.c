@@ -1,13 +1,13 @@
 #include "header_shell.h"
 
 /**
- * read_command - read input from user
+ * read_input - read input from user
  * @command: comman entered by user
  * @cmd_string_size: size of the command string
  * Return: Success
 */
 
-void read(char *command, size_t cmd_string_size)
+void read_input(char *command, size_t cmd_string_size)
 {
 	size_t i;
 	int newline_found = 0;
@@ -16,7 +16,7 @@ void read(char *command, size_t cmd_string_size)
 	if (getline(&command, &cmd_string_size, stdin) == -1)
 	{
 		our_print(error_msg);
-		exit(1, error_msg);
+		exit_execution(1, error_msg);
 	}
 
 	for (i = 0; i < cmd_string_size && !newline_found; i++)
@@ -42,4 +42,4 @@ void read(char *command, size_t cmd_string_size)
 	read(command, size);
 	free(command);
 	return (0);
-} */ 
+}*/

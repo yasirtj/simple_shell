@@ -19,21 +19,18 @@ void display(void)
     char *line = NULL;
     size_t len = 0;
     int read_bytes;
-    char *error_msg = "An error occured!";
-
-
     for (;;)
     {
-        our_print("shell$ ");
-        read_bytes = getline(&line, &len, stdin);
+			our_print("shell$ ");
+			read_bytes = getline(&line, &len, stdin);
 
-        if (read_bytes == -1)
-        {
-            our_print("\n");
-            exit(1, error_msg);
-            free(line);
-        }
-    }
+			if (read_bytes == -1)
+			{
+					our_print("\n");
+					exit_execution(1, "An error occured!");
+					free(line);
+			}
+		}
 }
 
 /**
