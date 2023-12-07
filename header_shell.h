@@ -16,4 +16,4 @@ void execute_prompt(const char *command, char *const arguments[]);
 
 void our_exit(int status_code, const char * error_msg);
 
-#endif // HEADER_SHELL_H
+#endif

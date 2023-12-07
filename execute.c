@@ -19,7 +19,7 @@ void execute_prompt(const char *command, char *const arguments[])
 	}
 	else if (child_pid == 0)
 	{
-		if (execve(command, (const char *const *)arguments, NULL) == -1)
+		if (execve(command, arguments, NULL) == -1)
 		{
 			our_exit(127, "command not found");
 	}
