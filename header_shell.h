@@ -6,7 +6,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <sys/types.h>
-#include <sys/wait.h>
+
 
 void display(void);
 void our_read(char *command, size_t size);
@@ -14,7 +14,7 @@ void read_input(char *command, size_t size);
 void our_print(const char *myprintfuntion);
 char **cmd_tokenizer(char *string, char *delimeter);
 void execute_prompt(const char *command, char **arguments[]);
-void execute_cmd (char **arg_vector);
+void execute_cmd(char *line, char **arr);
 
 void our_exit(int status_code, const char * error_msg);
 
