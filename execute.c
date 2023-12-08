@@ -36,7 +36,7 @@
  * Return: nothing
 **/
 
-void execute_cmd(char **arg_vector)
+/*void execute_cmd(char **arg_vector)
 {
 	char *cmd = NULL;
 
@@ -47,6 +47,18 @@ void execute_cmd(char **arg_vector)
 	{
 		our_exit(127, "command not found!");
 		};
+	}
+}*/
+void excute_cmd(char *line, char **arr)
+{
+	pid_t id;
+	id = fork();
+	if(id == 0)
+	{
+		execve(line, arr, NULL);
+	}
+	else{
+		wait(NULL);
 	}
 }
 
