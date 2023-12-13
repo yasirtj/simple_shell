@@ -32,6 +32,7 @@
 			<li>Handling the PATH</li>
 			<li>Implementing the exit built-in, that exits the shell</li>
 			<li>Implementing the env built-in, that prints the current environment</li>
+			<li>Build your own _getline function</li>
 		</ul>
 		<h4>Authers</h4>
 		<ol>
