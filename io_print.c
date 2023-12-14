@@ -10,3 +10,4 @@ void io_print(const char *io_msg)
 {
 	write(1, io_msg, strlen(io_msg));
 }
+

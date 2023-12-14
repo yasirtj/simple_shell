@@ -5,7 +5,7 @@
  * @string_cmd: the command we want to locate
  * Return: null terminated array of characters
  * represents the location of the command
-*/
+ */
 char *cmd_locater(char *string_cmd);
 char *cmd_locater(char *string_cmd)
 {

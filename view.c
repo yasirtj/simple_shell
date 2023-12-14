@@ -12,3 +12,4 @@ void view_prompt(void)
 	view_shell = "shell";
 	io_print(view_shell);
 }
+

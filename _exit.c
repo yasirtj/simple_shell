@@ -14,3 +14,4 @@ void custom_exit(int status_code, const char *err_msg)
 	}
 	exit(status_code);
 }
+

@@ -51,12 +51,13 @@ void execute_command(char **argv)
 			{
 				waitpid(pid, &status, 0);
 			}
+			custom_free(cmd_with_path);
 		}
 		else
 		{
-			custom_free(cmd_with_path);
-			custom_free(argv);
 			custom_exit(1, "Command not found!\n");
 		}
+		 custom_free(argv);
 	}
 }
+

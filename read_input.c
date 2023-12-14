@@ -40,7 +40,7 @@ void read_user_input(char *user_input, size_t user_input_size)
 	new_tokens = malloc(sizeof(char *) * (number_of_tokens + 1));
 	if (new_tokens == NULL)
 	{
-		/* free(new_tokens); */
+		free(new_tokens);
 		custom_exit(1, "Failed to allocate memory for your tokens");
 	}
 	generated_token = strtok(string_copy, delimeter);
@@ -56,7 +56,7 @@ void read_user_input(char *user_input, size_t user_input_size)
 		i++;
 	}
 	new_tokens[i] = NULL;
-	/* free(string_copy); */
+	free(string_copy);
 	execute_command(new_tokens);
 	for (i = 0; new_tokens[i] != NULL; i++)
 	{
