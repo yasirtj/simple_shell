@@ -1,52 +1,51 @@
-#include "shell_header.h"
+
+#include "shell.h"
 
 /**
- * tokenize_cmd - parses and tokenizes user input
- * @string: user input
- * @delimeter: delimeter
- * Return: pointer to pointer to null terminated array of sting
- * which represents parsed user input
-*/
+ * tokenizer - Tokenize a string into an array of strings.
+ * @input: The input string to tokenize.
+ * Return: An array of strings representing the tokens.
+ */
 
-char **tokenize_cmd(char *string, char *delimeter)
+char **tokenizer(char *input)
 {
-	char *generated_token;
-	char **new_tokens;
-	char *string_copy = NULL;
-	int i = 0, number_of_tokens = 0;
+char *token = NULL, *tmp = NULL;
+char **command = NULL;
+int cpt = 0, i = 0;
 
-	string_copy = malloc(strlen(string) + 1);
-	if (string_copy == NULL)
-	{
-		free(string_copy);
-		custom_exit(1, "Failed to allocate memory!\n");
-	}
-	strcpy(string_copy, string);
-	generated_token = strtok(string, delimeter);
-	while (generated_token != NULL)
-	{
-		number_of_tokens++;
-		generated_token = strtok(NULL, delimeter);
-	}
-	number_of_tokens++;
-	new_tokens = malloc(sizeof(char) * (strlen(generated_token) + 1));
-	if (new_tokens == NULL)
-	{
-		free(new_tokens);
-		custom_exit(1, "Failed to allocate memory for your tokens");
-	}
-	generated_token = strtok(string_copy, delimeter);
-	while (generated_token != NULL)
-	{
-		new_tokens[i] = malloc(sizeof(char) * (strlen(generated_token) + 1));
-		strcpy(new_tokens[i], generated_token);
-		generated_token = strtok(NULL, delimeter);
-		i++;
-	}
-	new_tokens[i] = NULL;
-	free(string_copy);
-	string_copy = NULL;
-	custom_free(string);
-	return (new_tokens);
+if (!input)
+return (NULL);
+tmp = custom_strdup(input);
+
+
+token = strtok(tmp, DELIM);
+if (token == NULL)
+{
+free(input);
+free(tmp);
+return (NULL);
 }
 
+while (token)
+{
+cpt++;
+token = strtok(NULL, DELIM);
+}
+free(tmp);
+command = malloc(sizeof(char *) * (cpt + 1));
+if (!command)
+{
+free(input);
+return (NULL);
+}
+token = strtok(input, DELIM);
+while (token)
+{
+command[i] = custom_strdup(token);
+token = strtok(NULL, DELIM);
+i++;
+}
+free(input);
+command[i] = NULL;
+return (command);
+}

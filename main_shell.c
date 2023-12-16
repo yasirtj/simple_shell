@@ -1,33 +1,32 @@
-#include "shell_header.h"
+#include "shell.h"
 
 /**
- * main - main function
- * Return: Success
-*/
+ * main - Simple shell main function
+ * @ac: Count of arguments
+ * @argv: Arguments
+ * Return: 0 always (success).
+ */
 
-int main(void)
+int main(int ac, char **argv)
 {
-	char *user_input = NULL;
-	/* char *delimeter = " "; */
-	/* char **cmd = NULL;*/
-	/* size_t i; */
-	size_t cmd_size = 0;
-
-	/*char **argv = malloc(sizeof(char *) * (cmd_size + 1)); */
-
-	for (;;)
-	{
-		if (isatty(STDIN_FILENO))
-		{
-			view_prompt();
-			write(1, "$ ", 2);
-		}
-		else
-		{
-			view_prompt();
-		}
-		read_user_input(user_input, cmd_size);
-		free(user_input);
-	}
-	return (0);
+char *line = NULL;
+char **command = NULL;
+int status = 0;
+(void) ac;
+while (1)
+{
+line = read_input();
+if (line == NULL)
+{
+if (isatty(STDIN_FILENO))
+{
+write(STDOUT_FILENO, "\n", 1);
 }
+break;
+}
+command = tokenizer(line);
+if (!command)
+continue;
+}
+}
+
