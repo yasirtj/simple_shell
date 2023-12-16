@@ -3,17 +3,14 @@
 /**
  * main - main function
  * Return: Success
-*/
+ */
 
 int main(void)
 {
 	char *user_input = NULL;
-	/* char *delimeter = " "; */
-	/* char **cmd = NULL;*/
-	/* size_t i; */
-	size_t cmd_size = 0;
+	size_t cmd_size;
 
-	/*char **argv = malloc(sizeof(char *) * (cmd_size + 1)); */
+	cmd_size = 0;
 
 	for (;;)
 	{
@@ -26,8 +23,16 @@ int main(void)
 		{
 			view_prompt();
 		}
+		user_input = malloc(sizeof(char) * MAX_INPUT_SIZE);
+
+		if (user_input == NULL)
+		{
+			custom_exit(1, "Failed to allocate memory for user input\n");
+		}
 		read_user_input(user_input, cmd_size);
 		free(user_input);
 	}
+
 	return (0);
 }
+

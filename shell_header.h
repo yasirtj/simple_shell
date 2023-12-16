@@ -8,6 +8,7 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+#define MAX_INPUT_SIZE 256
 
 extern char **environ;
 
