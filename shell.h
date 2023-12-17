@@ -24,7 +24,7 @@ char *custom_strcpy(char *dest, char *src);
 
 char **tokenizer(char *line);
 
-int _execute(char **command, char **argv);
+int custom_execute(char **command, char **argv);
 void freearray(char **arr);
 
 
