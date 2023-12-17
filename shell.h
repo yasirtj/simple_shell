@@ -24,9 +24,13 @@ char *custom_strcpy(char *dest, char *src);
 
 char **tokenizer(char *line);
 
-int custom_execute(char **command, char **argv);
+int custom_execute(char **command, char **argv, int idx);
 void freearray(char **arr);
 
-
+char *_getenv(char *variable);
+char *_getpath(char *command);
+void print_error(char *name, char *cmd, int idx);
+char *_itoa(int n);
+void reverse_string(char *str, int len);
 #endif
 
